@@ -84,13 +84,11 @@ $ ls -alh tmp/stackprof-*
 
 ## Installation
 
-Install the gem and add to the application's Gemfile by executing:
+Add this line to your Gemfile:
 
-    $ bundle add stackprof-route_middleware
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-    $ gem install stackprof-route_middleware
+```ruby
+gem 'stackprof-route_middleware'
+```
 
 ## Development
 
