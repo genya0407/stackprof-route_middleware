@@ -57,7 +57,10 @@ module StackProf
 
         raise "Expected path to be directory" if path == path.chomp("/")
 
-        filename = "stackprof-#{route_calculator.call(env).gsub(/\W/, "_")}-#{results[:mode]}-#{Process.pid}-#{Time.now.to_i}.dump"
+        route = route_calculator.call(env)
+        return unless route
+
+        filename = "stackprof-#{route.gsub(/\W/, "_")}-#{results[:mode]}-#{Process.pid}-#{Time.now.to_i}.dump"
 
         FileUtils.mkdir_p(path)
         File.binwrite(File.join(path, filename), Marshal.dump(results))
